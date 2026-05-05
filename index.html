@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Calificaciones</title>
+    <link rel="icon" href="icono.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-container"><img src="logo.png" alt="Logo Institución" class="logo-img"></div>
+    <h1><i class="fa-solid fa-calculator"></i> Calcula tu Promedio</h1>
+    <label>Carrera Profesional</label>
+    <select id="carrera" onchange="cargarSemestres()">
+        <option value="">Seleccione carrera...</option>
+    </select>
+    <label>Semestre</label>
+    <select id="semestre" onchange="cargarAsignaturas()" disabled>
+        <option value="">Seleccione semestre...</option>
+    </select>
+    <label>Asignatura</label>
+    <select id="asignatura" onchange="generar()" disabled>
+        <option value="">Seleccione asignatura...</option>
+    </select>
+    <div id="contenedor"></div>
+    <hr>
+    <button class="btn-blue" onclick="calcularModulos()"><i class="fa-solid fa-chart-line"></i> Calcular Promedio</button>
+    <div id="resultadoModulo" class="resultado"></div>
+    <hr>
+    <h3 style="margin-bottom:10px;"><i class="fa-solid fa-graduation-cap"></i> Evaluación Final (Promedio 70% + Examen 30%)</h3>
+    <div id="wrapperExamen">
+        <label style="margin-top:0;">Nota de Examen</label>
+        <input type="number" id="examen" min="1" max="7" step="0.1" placeholder="Ej: 5.5" oninput="validarNota(this)" disabled>
+    </div>
+    <button id="btnCalcularFinal" class="btn-orange" onclick="calcularFinal()" disabled> <i class="fa-solid fa-trophy"></i> Obtener Nota Final</button>
+    <div id="resultadoFinal" class="resultado"></div>
+</div>
+<script src="asignaturas.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
