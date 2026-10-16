@@ -5,7 +5,7 @@
     --bg-body: #F3F4F6;
     --bg-container: #FFFFFF;
     --text-main: #1F2937;
-    --color-primary: #2563EB;
+    --color-primary: #19429f;
     --color-success: #10B981;
     --color-danger: #EF4444;
     --color-warning: #F59E0B;
@@ -25,6 +25,162 @@ body {
     padding: 20px;
 }
 
+/* --- ESTILOS DE INTERFAZ AMIGABLE --- */
+
+.header-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header-title h1 {
+    font-size: 1.8rem;
+    color: var(--color-primary, #004B87);
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #64748B;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Títulos de Pasos */
+.section-block {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #1E293B;
+    margin-bottom: 15px;
+}
+
+.step-tag {
+    background: #E0F2FE;
+    color: #0369A1;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag-meta {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+
+/* Agrupación de Campos */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-group label i {
+    color: #0284C7;
+}
+
+/* Contenedor en fila de dos columnas para Semestre y Asignatura */
+.form-row {
+    display: flex;
+    gap: 15px; /* Espacio de separación entre los dos selectores */
+    width: 100%;
+}
+
+.form-row .form-group {
+    flex: 1; /* Hace que ambos campos ocupen exactamente el mismo ancho */
+}
+
+/* Opcional: Para pantallas pequeñas (móviles), se acomodan automáticamente en una columna */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* Simulador Rediseñado */
+.simulator-box {
+    background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 100%);
+    border: 1px solid #BFDBFE;
+    border-radius: 18px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.simulator-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.1);
+}
+
+.simulator-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.simulator-box h3 {
+    margin: 0;
+    color: #1D4ED8;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.simulator-desc {
+    font-size: 0.88rem;
+    color: #475569;
+    margin: 0 0 12px 0;
+}
+
+
+/* Contenedores de estado profesionales */
+.status-msg {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.status-msg.success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.status-msg.warning {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.status-msg i {
+    font-size: 1.1rem;
+}
+
 /* =========================================
    2. CONTENEDORES PRINCIPALES
    ========================================= */
@@ -36,6 +192,42 @@ body {
     border-radius: 20px;
     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
 }
+
+/* 1. Modificar tu contenedor principal */
+.container, .card, .calculadora-box { /* Usa la clase o id real de tu tarjeta blanca */
+    position: relative;
+    background: #ffffff;
+    border-radius: 20px; /* Asegúrate de mantener tu border-radius */
+    overflow: hidden;    /* <--- IMPORTANTE: Recorta cualquier contenido que sobresalga de las esquinas */
+    
+    /* Elimina el border-top y border-image anteriores si los habías puesto aquí */
+    border-top: none; 
+}
+
+/* 2. Franja superior decorativa con brillo y bordes perfectos */
+.container::before { /* Usa la misma clase/id de tu contenedor */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px; /* Grosor de la línea decorativa */
+    
+    /* Degradado de colores con toque de brillo (Azul institucional y Verde) */
+    background: linear-gradient(
+        90deg, 
+        #004b87 0%, 
+        #0066b3 35%, 
+        #10b981 50%, 
+        #0066b3 65%, 
+        #004b87 100%
+    );
+    
+    /* Sombra suave para darle el efecto brillante sobre el fondo blanco */
+    box-shadow: 0 1px 6px rgba(0, 102, 179, 0.4);
+    z-index: 5;
+}
+
 
 .logo-container {
     text-align: center;
@@ -70,7 +262,7 @@ label {
     display: block;
     margin-top: 15px;
     font-size: 0.9rem;
-    color: #4B5563;
+    color: #030404;
 }
 
 select, input {
@@ -308,4 +500,52 @@ button:disabled {
     .error-text {
         font-size: 0.7rem;
     }
+}
+
+/* --- ESTILOS PARA EL SIMULADOR DE META --- */
+.simulator-box {
+    background: #EFF6FF;
+    border: 2px dashed #2563EB;
+    padding: 20px;
+    border-radius: 16px;
+    margin-top: 20px;
+    transition: var(--transition-smooth);
+}
+
+.simulator-box h3 {
+    margin-top: 0;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+.simulator-box label {
+    margin-top: 0;
+}
+
+#resultadoMeta {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+
+/* --- BARRA DE PROGRESO VISUAL --- */
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #E5E7EB;
+    border-radius: 4px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--color-danger);
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+.progress-complete {
+    background-color: var(--color-success) !important;
 }

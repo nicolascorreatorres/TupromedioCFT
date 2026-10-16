@@ -13,33 +13,83 @@
 <body>
 
 <div class="container">
-    <div class="logo-container"><img src="logo.png" alt="Logo Institución" class="logo-img"></div>
-    <h1><i class="fa-solid fa-calculator"></i> Calcula tu Promedio</h1>
-    <label>Carrera Profesional</label>
-    <select id="carrera" onchange="cargarSemestres()">
-        <option value="">Seleccione carrera...</option>
-    </select>
-    <label>Semestre</label>
-    <select id="semestre" onchange="cargarAsignaturas()" disabled>
-        <option value="">Seleccione semestre...</option>
-    </select>
-    <label>Asignatura</label>
-    <select id="asignatura" onchange="generar()" disabled>
-        <option value="">Seleccione asignatura...</option>
-    </select>
-    <div id="contenedor"></div>
-    <hr>
-    <button class="btn-blue" onclick="calcularModulos()"><i class="fa-solid fa-chart-line"></i> Calcular Promedio</button>
-    <div id="resultadoModulo" class="resultado"></div>
-    <hr>
-    <h3 style="margin-bottom:10px;"><i class="fa-solid fa-graduation-cap"></i> Evaluación Final (Promedio 70% + Examen 30%)</h3>
-    <div id="wrapperExamen">
-        <label style="margin-top:0;">Nota de Examen</label>
-        <input type="number" id="examen" min="1" max="7" step="0.1" placeholder="Ej: 5.5" oninput="validarNota(this)" disabled>
+    <div class="logo-container">
+        <img src="logo.png" alt="Logo Institución" class="logo-img">
     </div>
-    <button id="btnCalcularFinal" class="btn-orange" onclick="calcularFinal()" disabled> <i class="fa-solid fa-trophy"></i> Obtener Nota Final</button>
-    <div id="resultadoFinal" class="resultado"></div>
+
+    <div class="header-title">
+        <h1><i class="fa-solid fa-calculator"></i> Calcula tu Promedio</h1>
+        <p class="subtitle">Simula y gestiona tus calificaciones académicas en tiempo real</p>
+    </div>
+
+    <!-- PASO 1: SELECCIÓN ACADÉMICA -->
+    <div class="section-block">
+        <div class="section-title">
+            <span class="step-tag">Paso 1</span>
+            <span>Selección de Asignatura</span>
+        </div>
+
+        <div class="form-group">
+            <label for="carrera"><i class="fa-solid fa-user-graduate"></i> Carrera Profesional</label>
+            <select id="carrera" onchange="cargarSemestres()">
+                <option value="">Seleccione carrera...</option>
+            </select>
+        </div>
+
+        <!-- Fila de dos columnas para Semestre y Asignatura -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="semestre"><i class="fa-solid fa-calendar-days"></i> Semestre</label>
+                <select id="semestre" onchange="cargarAsignaturas()" disabled>
+                    <option value="">Seleccione semestre...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="asignatura"><i class="fa-solid fa-book"></i> Asignatura</label>
+                <select id="asignatura" onchange="generar()" disabled>
+                    <option value="">Seleccione asignatura...</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR DINÁMICO DE NOTAS PARCIALES -->
+    <div id="contenedor"></div>
+    <div id="resultadoModulo" class="resultado"></div>
+
+    <hr>
+
+    <!-- PASO 2: EVALUACIÓN FINAL -->
+    <div class="section-block">
+        <div class="section-title">
+            <span class="step-tag">Paso 2</span>
+            <span>Evaluación Final (Promedio 70% + Examen 30%)</span>
+        </div>
+
+        <div id="wrapperExamen" class="form-group">
+            <label for="examen"><i class="fa-solid fa-file-pen"></i> Nota de Examen</label>
+            <input type="number" id="examen" min="1" max="7" step="0.1" placeholder="Ej: 5.5" oninput="validarNota(this)" disabled>
+        </div>
+        <div id="resultadoFinal" class="resultado"></div>
+    </div>
+
+    <hr>
+
+    <!-- PASO 3: SIMULADOR DE META -->
+    <div class="simulator-box">
+        <div class="simulator-header">
+            <span class="step-tag tag-meta">Paso 3</span>
+            <h3><i class="fa-solid fa-bullseye"></i> Simulador de Meta</h3>
+        </div>
+        <p class="simulator-desc">¿Qué nota final te gustaría obtener en la asignatura?</p>
+        <div class="form-group">
+            <input type="number" id="metaNota" min="1" max="7" step="0.1" placeholder="Ej: 5.0" oninput="calcularMeta()" disabled>
+        </div>
+        <div id="resultadoMeta"></div>
+    </div>
 </div>
+
 <script src="asignaturas.js"></script>
 <script src="script.js"></script>
 </body>
