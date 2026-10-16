@@ -659,7 +659,12 @@ function calcularMeta() {
     } else if (notaExamenNecesaria <= 1.0) {
         resMetaDiv.innerHTML = `<div style="margin-top: 10px;"><span class="status-msg success"><i class="fa-solid fa-award"></i> ¡Ya tienes asegurada tu meta! Incluso con un 1.0 en el examen alcanzas o superas el ${metaVal.toFixed(1)}.</span></div>`;
     } else {
-        resMetaDiv.innerHTML = `<div style="margin-top: 10px;"><span class="status-msg" style="background-color: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd;"><i class="fa-solid fa-lightbulb"></i> Para obtener un <b>${metaVal.toFixed(1)}</b> final, necesitas sacarte al menos un <b style="font-size: 1.05rem;">${notaExamenNecesaria.toFixed(1)}</b> en el examen.</span></div>`;
+        resMetaDiv.innerHTML = `<div style="margin-top: 10px;">
+            <span class="status-msg info">
+                <i class="fa-solid fa-lightbulb"></i>
+                <div class="status-text">Para obtener un <b>${metaVal.toFixed(1)}</b> final, necesitas sacarte al menos un <b style="font-size: 1.05rem;">${notaExamenNecesaria.toFixed(1)}</b> en el examen.</div>
+            </span>
+        </div>`;
     }
 }
 window.onload = cargarDatosInstitucion;

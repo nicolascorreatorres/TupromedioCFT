@@ -155,16 +155,35 @@ body {
 
 
 /* Contenedores de estado profesionales */
+/* Contenedor de estado profesional y adaptable a celulares */
+/* Contenedor de estado profesional */
 .status-msg {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border-radius: 10px;
-    font-size: 0.92rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 0.9rem;
     font-weight: 500;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1.4;
 }
 
+.status-msg i {
+    font-size: 1.15rem;
+    margin-top: 1px;
+    flex-shrink: 0;   /* Evita que el ícono se deforme */
+}
+
+/* Contenedor interno para que el texto fluya como un párrafo normal */
+.status-text {
+    flex: 1;
+    word-break: break-word;
+}
+
+/* Variantes de color */
 .status-msg.success {
     background-color: #d1fae5;
     color: #065f46;
@@ -177,8 +196,10 @@ body {
     border: 1px solid #fecaca;
 }
 
-.status-msg i {
-    font-size: 1.1rem;
+.status-msg.info {
+    background-color: #f0f9ff;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
 }
 
 /* =========================================
